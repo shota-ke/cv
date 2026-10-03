@@ -1,0 +1,44 @@
+version: '3'
+
+vars:
+  TEXLIVE_IMAGE: registry.gitlab.com/islandoftex/images/texlive:TL2025-2025-03-30-full
+
+tasks:
+  default:
+    desc: Compile the CV with Docker
+    cmds:
+      - task: compile
+
+  compile:
+    aliases: [build]
+    desc: Compile main.tex into out/main.pdf with LuaLaTeX in Docker
+    dir: '{{.TASKFILE_DIR}}'
+    preconditions:
+      - sh: docker info >/dev/null 2>&1
+        msg: Docker is unavailable. Start Docker Desktop or your Docker daemon.
+    cmds:
+      - mkdir -p out
+      - >-
+        docker run --rm
+        --user "$(id -u):$(id -g)"
+        --env TEXMFVAR=/tmp
+        --env TEXMFCACHE=/tmp
+        --volume '{{.TASKFILE_DIR}}:/work'
+        --workdir /work
+        '{{.TEXLIVE_IMAGE}}'
+        latexmk -lualatex -interaction=nonstopmode -halt-on-error
+        -file-line-error -outdir=out main.tex
+      - 'echo "CV built: {{.TASKFILE_DIR}}/out/main.pdf (source: main.tex)"'
+
+  clean:
+    desc: Remove intermediate files, keeping out/main.pdf
+    dir: '{{.TASKFILE_DIR}}'
+    cmds:
+      - rm -f out/main.aux out/main.fdb_latexmk out/main.fls out/main.log out/main.out out/main.synctex.gz
+
+  clobber:
+    desc: Remove intermediate files and out/main.pdf
+    dir: '{{.TASKFILE_DIR}}'
+    cmds:
+      - task: clean
+      - rm -f out/main.pdf

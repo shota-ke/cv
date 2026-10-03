@@ -1,0 +1,138 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=1.7cm,bottom=1.7cm,left=1.6cm,right=1.6cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}
+\linespread{1.02}
+\usepackage{titlesec,tabularx,enumitem,needspace,xcolor}
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black,
+  pdftitle={Shota Ikari - Curriculum Vitae},pdfauthor={Shota Ikari}]{hyperref}
+\usepackage{fancyhdr,lastpage}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\small\color{gray}Shota Ikari}
+\fancyfoot[R]{\small\color{gray}\thepage\,/\,\pageref*{LastPage}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setcounter{secnumdepth}{0}
+\raggedright
+\titleformat{\section}{\needspace{4\baselineskip}\large\bfseries}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+\setlist[itemize]{leftmargin=12pt,topsep=3pt,itemsep=1pt,parsep=0pt,partopsep=0pt}
+
+\newenvironment{entry}[2]{%
+  \par\addvspace{4pt}\noindent\begin{minipage}{\linewidth}
+  \raggedright
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X@{\hspace{12pt}}r@{}}
+    #1 & #2
+  \end{tabularx}\par\vspace{1pt}
+}{\end{minipage}\par}
+\newenvironment{entrydetails}{%
+  \begin{list}{}{\setlength{\leftmargin}{10pt}\setlength{\rightmargin}{0pt}%
+    \setlength{\topsep}{0pt}\setlength{\partopsep}{0pt}\setlength{\parsep}{0pt}}\item[]
+}{\end{list}}
+\newcommand{\me}{\underline{Shota Ikari}}
+
+\begin{document}
+\hfill{\small\color{gray}\textit{Last updated: October 2026}}\par
+\vspace{4pt}
+\begin{center}
+  {\fontsize{26pt}{29pt}\selectfont Shota Ikari}\par
+  \vspace{4pt}
+  \href{mailto:shota-ikari@g.ecc.u-tokyo.ac.jp}{shota-ikari@g.ecc.u-tokyo.ac.jp}
+  \enspace|\enspace
+  \href{https://shota-ke.github.io/}{shota-ke.github.io}\\[3pt]
+\end{center}
+
+\section{Education}
+\begin{entry}{\textbf{The University of Tokyo}, Japan}{Apr 2025 -- Present}
+  \begin{entrydetails}
+  Master's Program (Expected Mar 2027), Department of Information Physics and Computing,\\
+  Graduate School of Information Science and Technology\\
+  \href{https://hal.ipc.i.u-tokyo.ac.jp/en/}{Computing Systems Research Laboratory}
+  \begin{itemize}
+    \item GPA: 4.0/4.0
+    \item Research: Quantum Computer Architecture.
+  \end{itemize}
+  \end{entrydetails}
+\end{entry}
+\begin{entry}{\textbf{Kyoto University}, Japan}{Apr 2021 -- Mar 2025}
+  \begin{entrydetails}
+  Bachelor of Engineering, Department of Electrical and Electronic Engineering,
+  Faculty of Engineering\\
+  \href{https://qip.kuee.kyoto-u.ac.jp/en/index.html}{Photonic Quantum Information Laboratory}
+  \begin{itemize}
+    \item GPA: 3.88/4.3
+    \item Bachelor's thesis:\\
+      \hspace*{12pt}\textit{Quantum Walks with Periodic Boundary Conditions for Observation of Non-Hermitian Physics}
+  \end{itemize}
+  \end{entrydetails}
+\end{entry}
+
+
+\section{International Conference Proceedings}
+\begin{entry}{\textbf{Circuit-Level Implementation and Evaluation of Logical SH Gates in the Surface Code}}{2026}
+  \me, Yuga Hirai, Yosuke Ueno, Yasunari Suzuki, and Hiroshi Nakamura\\
+  IEEE International Conference on Quantum Computing and Engineering (QCE). To appear; poster.
+\end{entry}
+
+\section{Preprints}
+\begin{entry}{\textbf{\href{https://arxiv.org/abs/2608.11719}{Do Not Let CNOTs Overwhelm the Decoder: Scheduling Transversal Gates for Fast FTQC}}}{2026}
+  \me, Yuga Hirai, Yasunari Suzuki, Hiroshi Nakamura, and Yosuke Ueno\\
+  arXiv:2608.11719 [quant-ph]
+\end{entry}
+\begin{entry}{\textbf{\href{https://arxiv.org/abs/2604.13632}{A $2d \times d \times d$ Spacetime Volume Implementation of a Logical S Gate in the Surface Code}}}{2026}
+  Yuga Hirai, \me, Yosuke Ueno, and Yasunari Suzuki\\
+  arXiv:2604.13632 [quant-ph]
+\end{entry}
+\begin{entry}{\textbf{\href{https://arxiv.org/abs/2603.01628}{No More Hooks in the Surface Code: Distance-Preserving Syndrome Extraction for Arbitrary Layouts at Minimum Depth}}}{2026}
+  Yuga Hirai, \me, Yosuke Ueno, and Yasunari Suzuki\\
+  arXiv:2603.01628 [quant-ph]
+\end{entry}
+
+\section{Scholarships and Grants}
+\begin{entry}{\textbf{Kyoto University CF Project Scholarship}}{Apr 2023 -- Mar 2025}
+  \textit{Issued by Kyoto University}
+  \begin{itemize}
+    \item Stipend: JPY 50,000 / month
+    \item Awarded based on academic achievement
+  \end{itemize}
+\end{entry}
+
+\begin{entry}{\textbf{Scholarship for Japanese University Students}}{Jul 2024}
+  \textit{Issued by Keyence Foundation}
+  \begin{itemize}
+    \item One-time grant: JPY 300,000
+    \item Selected based on application materials and an essay
+  \end{itemize}
+\end{entry}
+
+
+\section{Work Experience}
+\begin{entry}{\textbf{Part-time Research Engineer}, Preferred Networks, Inc.}{May 2025 -- Present}
+  \begin{itemize}
+    \item Develop and implement statistical models for weather data using PyTorch.
+    \item Optimize GPU training performance and data processing pipelines for large-scale datasets.
+  \end{itemize}
+\end{entry}
+\begin{entry}{\textbf{Software Engineer Intern}, Recruit Co., Ltd.}{Jan 2026 -- Feb 2026}
+  \begin{itemize}
+    \item Built a full-stack LLM application integrating RAG and MCP servers.
+    \item Deployed the application on AWS and configured a CI/CD pipeline.
+  \end{itemize}
+\end{entry}
+\begin{entry}{\textbf{Teaching Assistant}, The University of Tokyo}{Apr 2025 -- Aug 2026}
+  \begin{itemize}
+    \item Assisted students with experiments involving microcontrollers and FPGAs.
+  \end{itemize}
+\end{entry}
+\begin{entry}{\textbf{Part-time Software Engineer}, DATAGRID}{Mar 2022 -- Aug 2024}
+  \begin{itemize}
+    \item Investigated computer vision and machine learning methods for image processing and generation.
+    \item Formulated optimization models for transportation scheduling using Python and OR-Tools.
+  \end{itemize}
+\end{entry}
+
+\end{document}

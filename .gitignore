@@ -1,0 +1,4 @@
+.DS_Store
+.task/
+out/*
+!out/main.pdf
